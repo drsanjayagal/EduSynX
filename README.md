@@ -1,88 +1,125 @@
-````md
+```md
 # EduSynX
 
 **A Machine Learning Framework with a Public Synthetic Student Dataset for Explainable Decision Support and Academic Success Prediction**
 
 ---
 
-## 🚀 Overview
-
-**EduSynX** is a scalable machine learning framework designed to generate large-scale synthetic student datasets (ranging from **10 million to 100+ million records**) with realistic feature correlations and class imbalance.
-
-It provides a complete, end-to-end pipeline for:
-
-- 📊 Large-scale CSV dataset generation (chunk-based)
-- ⚙️ Data preprocessing (scaling + categorical encoding)
-- 🤖 Model training (Random Forest, XGBoost, LightGBM)
-- 📈 Performance evaluation (metrics + visualization)
-- 🔍 Explainability using SHAP
-- 🧠 Actionable decision-support insights
+## Author  
+**Dr. Sanjay Agal**  
+Professor & Head, Artificial Intelligence & Data Science  
+Parul University, India  
 
 ---
 
-## 📂 Dataset Description
-
-The dataset is generated in **chunks** and stored as multiple CSV files within the `data/` directory.
-
-- Each row represents **one student**
-- Total features: **45 (44 predictors + 1 target)**
+## DOI  
+https://doi.org/10.5281/zenodo.22052661  
 
 ---
 
-## 🧩 Feature Categories
+## Abstract
 
-| Category        | Features |
-|----------------|----------|
-| **Demographics** | age, gender, region, socioeconomic_status, parent_education |
-| **Academic**     | study_hours, attendance, internal_marks, previous_gpa, assignments_score, credit_load, backlog_count, semester, online_learning_hours, library_usage_hours |
-| **Behavioral**   | LMS_usage_time, login_frequency, submission_delay, forum_participation, video_watch_time, assignment_completion_rate, extra_curricular_hours |
-| **Psychological**| stress_level, anxiety_score, motivation_score, self_efficacy_score, peer_support_score, family_support_score, sleep_hours, physical_activity_hours |
-| **Institutional**| course_difficulty, faculty_rating, class_size, lab_availability_hours, internet_access, scholarship, campus_distance, tutoring_sessions, part_time_job_hours |
-| **Derived**      | performance_index, engagement_score, consistency_score, risk_score, improvement_trend |
-| **Target**       | final_result *(Pass, Fail, Dropout, Distinction)* |
+EduSynX is a research-grade framework for generating large-scale synthetic student datasets and building explainable machine learning models for academic outcome prediction. The system integrates data generation, modeling, evaluation, and interpretability into a unified pipeline, enabling reproducible and privacy-preserving research in educational data science.
 
 ---
 
-## 🔗 Feature Engineering Logic
+## Key Contributions
 
-Feature relationships are explicitly modeled to mimic real-world dependencies:
-
-- `study_hours → assignments_score → performance_index`
-- `attendance → internal_marks → final_result`
-
-Noise injection is applied to simulate real-world variability and uncertainty.
+- A scalable synthetic dataset generator supporting 10M–100M+ records  
+- Explicit modeling of academic feature dependencies  
+- Integrated machine learning pipeline (RF, XGBoost, LightGBM)  
+- Explainable AI using SHAP for transparent decision-making  
+- DOI-backed dataset for reproducibility and citation  
 
 ---
 
-## ⚙️ Installation & Usage
+## System Overview
 
-### 1. Generate Dataset
+```
+
+Synthetic Data Generation
+↓
+Preprocessing
+↓
+Model Training
+↓
+Evaluation
+↓
+Explainability
+↓
+Decision Support
+
+````
+
+---
+
+## Dataset Description
+
+- **Type:** Fully Synthetic (No real student data)  
+- **Format:** CSV (chunk-based storage)  
+- **Scale:** Configurable (10M to 100M+ records)  
+- **Features:** 45 total (44 predictors + 1 target)  
+
+### Feature Groups
+
+| Category        | Description |
+|----------------|------------|
+| Demographics   | Socio-economic and personal attributes |
+| Academic       | Study patterns, GPA, attendance, assessments |
+| Behavioral     | LMS usage and engagement metrics |
+| Psychological  | Motivation, stress, and support indicators |
+| Institutional  | Learning environment and resources |
+| Derived        | Computed indices (performance, risk, engagement) |
+| Target         | Final outcome (Pass, Fail, Dropout, Distinction) |
+
+---
+
+## Feature Modeling
+
+The dataset incorporates structured relationships to reflect realistic academic behavior:
+
+- `study_hours → assignments_score → performance_index → final_result`  
+- `attendance → internal_marks → final_result`  
+
+Controlled noise is introduced to simulate real-world variability.
+
+---
+
+## Installation
+
+```bash
+pip install -r requirements.txt
+````
+
+---
+
+## Usage
+
+### Generate Dataset
 
 ```bash
 python generate_data.py --rows 10000000 --chunk-size 1000000 --output-dir data --output-mode multiple
+```
 
-python generate_data.py --rows 100000000 --chunk-size 1000000 --output-dir data
-````
-
-### 2. Train Models
+### Train Model
 
 ```bash
 python train_model.py --data-dir data --max-train-rows 200000 --test-size 0.2 --output-dir results
 ```
 
-### 3. Evaluate Models
+### Evaluate Model
 
 ```bash
 python evaluate_model.py --results-dir results
 ```
 
-### 4. Explainability (SHAP)
+### Explainability
 
 ```bash
 python explainability.py --results-dir results --model-name XGBoost --sample-size 500
 ```
 
-### 5. Decision Support
+### Decision Support
 
 ```bash
 python decision_support.py --results-dir results --model-name XGBoost --num-students 5
@@ -90,9 +127,9 @@ python decision_support.py --results-dir results --model-name XGBoost --num-stud
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 
-```bash
+```
 EduSynX/
 ├── generate_data.py
 ├── preprocessing.py
@@ -107,39 +144,38 @@ EduSynX/
 
 ---
 
-## 📦 Dependencies
+## Applications
 
-Install all required packages using:
+* Academic success prediction
+* Student risk and dropout analysis
+* Institutional decision support systems
+* Benchmarking for educational AI models
+* Explainable AI research
 
-```bash
-pip install -r requirements.txt
+---
+
+## Reproducibility
+
+The dataset and framework are publicly available via DOI:
+
+https://doi.org/10.5281/zenodo.22052661
+
+This ensures long-term accessibility, citation, and reproducibility of results.
+
+---
+
+## Citation
+
+```
+Agal, S. (2026). EduSynX: Synthetic Student Dataset for Explainable Academic Prediction.
+Zenodo. https://doi.org/10.5281/zenodo.22052661
 ```
 
 ---
 
-## 🎯 Key Highlights
+## Conclusion
 
-* Scalable to **100M+ records**
-* Fully **synthetic (privacy-safe) dataset**
-* Built-in **Explainable AI (XAI)**
-* Designed for **academic decision support systems**
-* Suitable for **research, benchmarking, and deployment**
-
----
-
-## 📌 Use Cases
-
-* Academic success prediction
-* Student risk identification
-* Institutional policy simulation
-* AI research benchmarking
-* Explainable AI in education systems
-
----
-
-## 🧠 Summary
-
-**EduSynX** bridges the gap between **data availability** and **intelligent decision-making** in education through scalable synthetic data and explainable machine learning.
+EduSynX provides a unified and scalable framework for combining synthetic data generation with explainable machine learning, enabling transparent and reproducible research in academic analytics and intelligent educational systems.
 
 ```
 ```
