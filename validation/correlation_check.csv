@@ -1,0 +1,4 @@
+pair,manuscript_r,actual_r,delta,matches_within_0.05
+study_hours__internal_marks,0.42,0.6928399013735838,0.27283990137358377,False
+study_hours__attendance,0.38,0.8059769764173498,0.4259769764173498,False
+study_hours__previous_gpa,0.35,0.7967140893377025,0.4467140893377025,False

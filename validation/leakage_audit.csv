@@ -1,0 +1,6 @@
+metric,value
+linear_r2_target_proxy,0.3833559380238275
+linear_classifier_accuracy,0.494625
+max_abs_feature_target_corr,0.5653110497961114
+top5_correlated_features,"[('study_hours', 0.5653110497961114), ('attendance', 0.563912920902401), ('lms_usage_hours', 0.5446133237604346), ('previous_gpa', 0.5385830098635678), ('motivation_score', 0.5233583123373765)]"
+interpretation,"If R^2 > 0.85 or linear accuracy > 0.85, target is trivially recoverable. For a genuine prediction task with a four-class target and nonlinear generating mechanism, expect R^2 < 0.60 and accuracy < 0.60."

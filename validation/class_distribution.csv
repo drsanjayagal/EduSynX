@@ -1,0 +1,5 @@
+class,actual_count,actual_proportion,manuscript_proportion,delta,matches_within_0.03
+Distinction,40002,0.20001,0.2,9.999999999982245e-06,True
+Pass,79686,0.39843,0.4,-0.0015700000000000158,True
+Fail,50176,0.25088,0.25,0.0008799999999999919,True
+Dropout,30136,0.15068,0.15,0.0006800000000000139,True

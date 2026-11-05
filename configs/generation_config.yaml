@@ -1,0 +1,26 @@
+# Reproducible parameters for EduSynX-Bench data generation
+seed: 42
+n_pilot: 200000
+
+latent:
+  covariance:
+    - [1.0, 0.3, 0.4, 0.2]
+    - [0.3, 1.0, 0.5, 0.3]
+    - [0.4, 0.5, 1.0, 0.4]
+    - [0.2, 0.3, 0.4, 1.0]
+
+target:
+  distribution: {Dropout: 0.15, Fail: 0.25, Pass: 0.40, Distinction: 0.20}
+  calibrated_thresholds_file: target_thresholds.json
+  nonlinear_terms: [tanh(C*M), tanh(A*C), tanh(H), tanh(M-H)]
+  unobserved_confounder_weight: 0.40
+
+features:
+  source: "Table 1 of manuscript"
+  nonlinear_corrections: true   # tanh applied to selected terms
+  noise: per_feature_gaussian   # variances in Table 1
+
+output:
+  total_rows: 10000000
+  chunk_size: 1000000
+  format: csv

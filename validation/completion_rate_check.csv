@@ -1,0 +1,2 @@
+feature,mean_raw,mean_normalised_0_1,manuscript_mean,delta,note
+assignment_completion_rate,0.698070454,0.698070454,0.78,-0.08192954600000002,Manuscript reports 0.78. Table 1 equation (0.7 + 0.1*C + 0.05*M) implies mean 0.70. Reviewer 1 (comment 4) flagged this. This row is the actual value from the regenerated data.
